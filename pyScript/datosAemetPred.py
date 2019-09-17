@@ -1,4 +1,4 @@
-import http.client
+import httplib
 import json
 import pandas as pd
 import requests
@@ -11,7 +11,7 @@ while True:
 
 
 
-	conn = http.client.HTTPSConnection("opendata.aemet.es")
+	conn = httplib.HTTPSConnection("opendata.aemet.es")
 
 	headers = {
 	    'cache-control': "no-cache"

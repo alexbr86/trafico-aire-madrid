@@ -1,9 +1,9 @@
-import http.client
+import httplib
 import json
 import pandas as pd
 import requests
 
-# Estaciones de Madrid y sus códigos: 3129 MADRID-BARAJAS, 3194U MADRID-CIUDAD UNIVERSITARIA, 3195 MADRID-RETIRO
+# Estaciones de Madrid y sus codigos: 3129 MADRID-BARAJAS, 3194U MADRID-CIUDAD UNIVERSITARIA, 3195 MADRID-RETIRO
 estaciones = ['3129', '3194U', '3195']
 
 
@@ -13,7 +13,7 @@ while True:
 
 
 	for i in estaciones:
-	  conn = http.client.HTTPSConnection("opendata.aemet.es")
+	  conn = httplib.HTTPSConnection("opendata.aemet.es")
 
 	  headers = {
 	      'cache-control': "no-cache"
