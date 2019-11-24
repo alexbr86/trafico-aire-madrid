@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import itertools
 from bs4 import BeautifulSoup as b
+import time 
 
 
 
@@ -17,6 +18,7 @@ while True:
 	soup = b(response.content, "lxml")
 
 	idelem =  [ values.text for values in soup.findAll("idelem")]
+	fecha =  [ values.text for values in soup.findAll("fecha_hora")]
 	descripcion = [ values.text for values in soup.findAll("descripcion")]
 	accesoAsociado =  [ values.text for values in soup.findAll("accesoasociado")]
 	intensidad =  [ values.text for values in soup.findAll("intensidad")]
@@ -32,6 +34,7 @@ while True:
 
 	data = [item for item in itertools.zip_longest(idelem, descripcion, accesoAsociado, intensidad, ocupacion, carga, nivelServicio, intensidadSat, error, subarea, st_x, st_y)] 
 	df  = pd.DataFrame(data=data, columns = ["idelem", "descripcion", "accesoAsociado", "intensidad", "ocupacion", "carga", "nivelServicio", "intensidadSat", "error", "subarea", "st_x", "st_y"])
+	df['fecha'] = fecha[0]
 
 
 
@@ -39,7 +42,9 @@ while True:
 	# Guardamos el fichero:
 	eventTime = time.strftime("%Y%m%d%H%M")
 	file_name = "trafico_"+eventTime+'.csv'
-	df.to_csv(r'./rawData/trafico/'+file_name, sep='\t',encoding='utf-8', index=False)
+	df.to_csv('/home/abalserio/tfm/rawData/trafico/'+file_name, sep=',',encoding='utf-8', index=False)
+	#df.to_csv('/home/alex/Master/TFM/trafico-aire-madrid/'+file_name, sep=',',encoding='utf-8', index=False)
+
 
 	# Se ejecuta el while cada hora
 	time.sleep(300)

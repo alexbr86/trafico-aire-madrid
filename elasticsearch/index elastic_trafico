@@ -1,0 +1,53 @@
+PUT /trafico
+{
+  "mappings": {
+    "properties": {
+      "idelem": {
+        "type": "integer"
+      },
+      "descripcion": {
+        "type": "text"
+      },
+      "accesoAsociado": {
+        "type": "float"
+      },
+      "intensidad": {
+        "type": "integer"
+      },
+      "ocupacion": {
+        "type": "integer"
+      },
+      "carga": {
+        "type": "integer"
+      },
+      "nivelServicio": {
+        "type": "float"
+      },
+      "intensidadSat": {
+        "type": "float"
+      },
+      "subarea": {
+        "type": "float"
+      },
+      "longitud": {
+        "type": "float"
+      },
+      "latitud": {
+        "type": "float"
+      },
+      "fecha": {
+        "type": "date",
+        "format": "date_hour_minute_second"
+      },
+      "localizacion": {
+        "type": "geo_point"
+      },
+      "hex_id": {
+        "type": "text"
+      },
+      "GEOM": {
+        "type": "geo_shape"
+      }
+    }
+  }
+}

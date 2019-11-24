@@ -1,0 +1,79 @@
+PUT airemadrid
+
+{
+
+  "mappings": {
+
+    "properties": {
+
+      "PROVINCIA": {
+
+        "type": "integer"
+
+      },
+      "MUNICIPIO": {
+
+        "type": "integer"
+
+      },
+      "ESTACION": {
+
+        "type": "integer"
+      },
+      "PUNTO_MUESTREO": {
+
+        "type": "text"
+
+      },
+      "NOMBRE_ESTACION": {
+
+        "type": "text"
+
+      },
+      "LONGITUD": {
+
+        "type": "float"
+
+      },
+      "LATITUD": {
+
+        "type": "float"
+
+      },
+      "MAGNITUD_NOMBRE": {
+
+        "type": "text"
+
+      },
+      "FECHA": {
+
+        "type": "date",
+        "format": "date_hour"
+      },
+      "LOCALIZACION": {
+
+        "type": "geo_point"
+      },
+      "HORA": {
+
+        "type": "date",
+        "format": "hour"
+      },
+      "VALOR": {
+
+        "type": "float"
+      },
+      "hex_id": {
+
+        "type": "text"
+      },
+      "GEOM": {
+
+        "type": "geo_shape"
+      }
+      
+    }
+
+  }
+
+}
