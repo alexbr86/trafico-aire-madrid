@@ -10,7 +10,7 @@
 [0m[[0m[0mdebug[0m] [0m[0mMerging 'META-INF/maven/com.uber/h3/pom.properties' with strategy 'discard'[0m
 [0m[[0m[0mdebug[0m] [0m[0mMerging 'META-INF/maven/com.uber/h3/pom.xml' with strategy 'discard'[0m
 [0m[[0m[0minfo[0m] [0m[0mStrategy 'discard' was applied to 5 files (Run the task at debug level to see details)[0m
-[0m[[0m[0mdebug[0m] [0m[0mSHA-1: 0e576307ca86754a9ee978a9fb1c463b0127ceed[0m
+[0m[[0m[0mdebug[0m] [0m[0mSHA-1: c26f990d347250db10932628e12d649f8a612c4e[0m
 [0m[[0m[0minfo[0m] [0m[0mPackaging /home/alex/Master/TFM/trafico-aire-madrid/spark/madrid_trafic_air/target/scala-2.11/madrid_trafico_aire-assembly-0.1.jar ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	.gitkeep[0m

@@ -6,6 +6,7 @@ from io import StringIO, BytesIO
 import ast
 import time
 
+# Conexión con la API de AEMET para obtener los datos
 conn = http.client.HTTPSConnection("opendata.aemet.es")
 
 headers = {
@@ -14,22 +15,25 @@ headers = {
 
 while True:
 
+	# Hacer la llamada a la API
 	conn.request("GET", "/opendata/api/prediccion/especifica/municipio/horaria/28079?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmFsc2Vpcm8wMDFAZ21haWwuY29tIiwianRpIjoiNzliMGRiOTgtMWYwYS00YTIwLWEzMTktNDcyNjhkODI3MWJkIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE1NjIwOTU0MTIsInVzZXJJZCI6Ijc5YjBkYjk4LTFmMGEtNGEyMC1hMzE5LTQ3MjY4ZDgyNzFiZCIsInJvbGUiOiIifQ.1JTo_lVE-MU5KZR2LSjbQqML2qzWtXKRUEdj68jjQrg", headers=headers)
 
+	# Obtener el dato
 	res_pred = conn.getresponse()
 	data_pred = res_pred.read()
 	wjdata_pred = json.loads(data_pred)
-
 	url_pred = wjdata_pred['datos']
 	raw_data_pred = requests.get(url_pred).text
 	jj = ast.literal_eval(raw_data_pred)
 	tt = jj[0]
 	json_pred = tt.get("prediccion")
 
+	# Pasar el dato de un json anidado con arrays a un dataframe provisional
 	df_pred = pd.DataFrame.from_dict(json_pred.get("dia"))
 	df_pred = pd.DataFrame(df_pred.iloc[0, :])
 	df_pred = df_pred.transpose()
 
+	# Organizar en un solo dataframe el dataframe provisional con jsons en cada celda. Tratamiento columna a columna.
 	df1_pred = pd.DataFrame(df_pred['estadoCielo'].values.tolist()).transpose()
 	df1_pred.columns = ['estadoCielo']
 	df1_predj = pd.DataFrame()
@@ -136,10 +140,11 @@ while True:
 	df13_pred = pd.concat([dfj,dfk], axis=1, ignore_index=True)
 	df13_pred.columns=['viento_direccion',	'viento_velocidad', 'viento_periodo',	'rachaMax_value', 'rachaMax_periodo']
 
+	# Unir en un dataframe final cada uno de los dataframes obtenidos de los jsons de cada columna. 
 	df_aemet_pred = pd.concat([df1_pred, df2_pred, df3_pred, df4_pred, df5_pred, df6_pred, df7_pred, df8_pred, df9_pred, df10_pred, df11_pred, df12_pred, df13_pred],axis=1)
 
 
-	# Guardamos el fichero:
+	# Guardamos el fichero en formato csv:
 	eventTime = time.strftime("%Y%m%d%H%M")
 	file_name = "aemetpred_"+eventTime+'.csv'
 	df_aemet_pred.to_csv('/home/abalserio/tfm/rawData/aemet/prediccion/'+file_name, sep=',',encoding='utf-8', index=False)

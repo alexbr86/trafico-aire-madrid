@@ -1,0 +1,1 @@
+spark-submit --class m4.resources.Aire_calidad  --master yarn  --deploy-mode=cluster  --num-executors 1  --driver-memory 512m   --executor-memory 512m  --executor-cores 1 madrid_trafico_aire-assembly-0.1.jar

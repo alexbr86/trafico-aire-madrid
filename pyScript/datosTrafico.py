@@ -12,9 +12,10 @@ url = "http://informo.munimadrid.es/informo/tmadrid/pm.xml"
 
 
 while True:
-	
+	# Llamada a la url que proporciona la API en formato XML
 	response = requests.get(url)
 
+	# Tratar el XML con la librería BeutifulSoup para tranformarlo en dataframe
 	soup = b(response.content, "lxml")
 
 	idelem =  [ values.text for values in soup.findAll("idelem")]
@@ -31,7 +32,7 @@ while True:
 	st_x =  [ values.text for values in soup.findAll("st_x")]
 	st_y =  [ values.text for values in soup.findAll("st_y")]
 
-
+	# Unir cada uno de los tipos de datos obtenidos en columnas generando un solo dataframe
 	data = [item for item in itertools.zip_longest(idelem, descripcion, accesoAsociado, intensidad, ocupacion, carga, nivelServicio, intensidadSat, error, subarea, st_x, st_y)] 
 	df  = pd.DataFrame(data=data, columns = ["idelem", "descripcion", "accesoAsociado", "intensidad", "ocupacion", "carga", "nivelServicio", "intensidadSat", "error", "subarea", "st_x", "st_y"])
 	df['fecha'] = fecha[0]
@@ -39,7 +40,7 @@ while True:
 
 
 	
-	# Guardamos el fichero:
+	# Guardamos el fichero en formato csv:
 	eventTime = time.strftime("%Y%m%d%H%M")
 	file_name = "trafico_"+eventTime+'.csv'
 	df.to_csv('/home/abalserio/tfm/rawData/trafico/'+file_name, sep=',',encoding='utf-8', index=False)

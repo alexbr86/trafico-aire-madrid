@@ -14,7 +14,7 @@ while True:
 
 
 	
-	# Guardamos el fichero:
+	# Guardamos el fichero en formato csv:
 	eventTime = time.strftime("%Y%m%d%H%M")
 	file_name = "aireMadrid_"+eventTime+'.csv'
 	c.to_csv('/home/abalserio/tfm/rawData/aireMadrid/'+file_name, sep=',',encoding='utf-8', index=False)

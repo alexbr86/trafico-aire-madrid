@@ -9,6 +9,7 @@ estaciones = ['3129', '3194U', '3195']
 dflist = []
 
 while True:
+	# Hacer una llamada a la API de AEMET por cada codigo de estación
 	for i in estaciones:
 	  conn = http.client.HTTPSConnection("opendata.aemet.es")
 
@@ -18,6 +19,7 @@ while True:
 
 	  conn.request("GET", "/opendata/api/observacion/convencional/datos/estacion/%s?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmFsc2Vpcm8wMDFAZ21haWwuY29tIiwianRpIjoiNzliMGRiOTgtMWYwYS00YTIwLWEzMTktNDcyNjhkODI3MWJkIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE1NjIwOTU0MTIsInVzZXJJZCI6Ijc5YjBkYjk4LTFmMGEtNGEyMC1hMzE5LTQ3MjY4ZDgyNzFiZCIsInJvbGUiOiIifQ.1JTo_lVE-MU5KZR2LSjbQqML2qzWtXKRUEdj68jjQrg" % i, headers=headers)
 
+	  # Obtener los datos de cada estación convertirlos en dataframe y añadirlos en una lista.
 	  res_obv = conn.getresponse()
 	  data_obv = res_obv.read()
 	  wjdata_obv = json.loads(data_obv)
@@ -27,7 +29,7 @@ while True:
 	  
 	
 
-	# Guardamos el fichero:
+	# Guardamos el fichero como csv y unimos los dataframes de cada estación en uno:
 	aemet_obv_final = pd.concat(dflist, sort=False)
 	eventTime = time.strftime("%Y%m%d%H%M")
 	file_name = "aemetobv"+"_"+eventTime+'.csv'

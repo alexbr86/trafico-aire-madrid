@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20191113223707"/>
+		date="20191125232544"/>
 	<dependencies>
 		<module organisation="com.uber" name="h3">
 			<revision name="3.0.4" status="release" pubdate="20180725211559" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/uber/h3-java" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="2">
