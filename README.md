@@ -1,4 +1,5 @@
 # Análisis y predicción del tráfico y la calidad del aire en Madrid
+<<<<<<< HEAD
 
 ## [GitHub del proyecto](https://github.com/alexbr86/trafico-aire-madrid)
 
@@ -25,3 +26,5 @@
 5. En local levantar Elasticsearch y Kibana. (Teniendo en cuenta que ya está configurado los indices que hay en la carpeta ./elasticsearch/)
 6. Ejecutar en local los dos procesos de python ubicados en esta carpeta en ./H3/ . Con el comando python nombre_proceso.py
 7. Acceder a Kibana, en la zona de mapa y acceder a la visualización. Si no esta configurada añadir los indices y generar las visualizaciones.
+=======
+>>>>>>> 63dfd3630130e42e93b2c6c09f0d890f8b0bd943
