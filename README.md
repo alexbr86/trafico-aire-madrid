@@ -1,5 +1,4 @@
 # Análisis y predicción del tráfico y la calidad del aire en Madrid
-<<<<<<< HEAD
 
 ## [GitHub del proyecto](https://github.com/alexbr86/trafico-aire-madrid)
 
