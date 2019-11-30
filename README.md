@@ -12,9 +12,9 @@
 - **modelado**: contiene un notebook donde se ha realizado el analisis y modelado en formato notebook y .pdf. Ademas tiene un documento de texto explicando las variables del dataset y el dataset en .csv empleado en el notebook.
 - **pyScript**: contiene los cuatro procesos de python que se utilizan para la ingesta de cada tipo de dato.
 - **spark**: contiene el proyecto completo del procesamiento utilizado. Además dentro en la ruta ./spark/madrid_trafic_air/target/scala-2.11/madrid_trafico_aire-assembly-0.1.jar se encuentra el ejecutable. El comando para ejecutarlo se ubica en ./spark/spark_execute.txt
-- **Análisis y predicción de la contaminación del aire en Madrid en base al tráfico y meteorología**: documento de la memoria del proyecto en .pdf.
-- **Análisis y predicción de la contaminación del aire en Madrid en base al tráfico y meteorología_presentacion.pptx**: presentación ejecutiva del proyecto en powerpoint
-- **Análisis y predicción de la contaminación del aire en Madrid en base al tráfico y meteorología_presentacion.pdf**: presentación ejecutiva del proyecto en .pdf
+- **Análisis y predicción de la contaminación del aire en Madrid en base al tráfico y meteorología_MemoriaTFM**: documento de la memoria del proyecto (TFM) en .pdf.
+- **Análisis y predicción de la contaminación del aire en Madrid en base al tráfico y meteorología_presentacion.pptx**: presentación ejecutiva del proyecto (TFM) en powerpoint
+- **Análisis y predicción de la contaminación del aire en Madrid en base al tráfico y meteorología_presentacion.pdf**: presentación ejecutiva del proyecto (TFM) en .pdf
 - **videos**: contiene cuatro vídeos mostrando el funcionamiento de los diferentes procesos. Ingesta-procesamiento, aplicación de la cuadrícula H3 en terminal, aplicación de la cuadrícula H3 en notebook y visualización.
 
 ### Pasos a seguir para ejecutar.
